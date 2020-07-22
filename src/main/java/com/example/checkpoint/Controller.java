@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class Controller {
 
@@ -64,6 +67,17 @@ public class Controller {
         movie.setCredits(credits);
 
         return movie;
+    }
+
+    @PostMapping("/movies/gross/total")
+    public Map<String, Integer> sumTicketsTotal(@RequestBody() Movie movie) {
+        int total = 0;
+        for (Movie.Credits credits : movie.getCredits()) {
+            total += movie.getGross();
+        }
+        Map<String, Integer> result = new HashMap<>();
+        result.put("result", total);
+        return result;
     }
 }
 
