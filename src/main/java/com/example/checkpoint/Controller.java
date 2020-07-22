@@ -49,11 +49,19 @@ public class Controller {
         person5.setFirstName("Diane");
         person5.setLastName("Keaton");
 
-//        credits[0].setPerson(person1);
-//        credits[1].setPerson(person2);
-//        credits[2].setPerson(person3);
-//        credits[3].setPerson(person4);
-//        credits[4].setPerson(person5);
+        credits[0] = new Movie.Credits();
+        credits[1] = new Movie.Credits();
+        credits[2] = new Movie.Credits();
+        credits[3] = new Movie.Credits();
+        credits[4] = new Movie.Credits();
+
+        credits[0].setPerson(person1);
+        credits[1].setPerson(person2);
+        credits[2].setPerson(person3);
+        credits[3].setPerson(person4);
+        credits[4].setPerson(person5);
+
+        movie.setCredits(credits);
 
         return movie;
     }
